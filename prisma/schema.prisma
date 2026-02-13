@@ -1,0 +1,179 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  OWNER
+  MANAGER
+  STAFF
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL
+  WON
+  LOST
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  role      UserRole @default(STAFF)
+  avatarUrl String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  bookings  Booking[] // Staff assigned to bookings? Or creator? 
+  // For now, let's keep it simple.
+}
+
+model Lead {
+  id             String     @id @default(uuid())
+  name           String
+  email          String
+  phone          String?
+  company        String?
+  status         LeadStatus @default(NEW)
+  source         String?
+  notes          String?
+  isStarred      Boolean    @default(false)
+  isArchived     Boolean    @default(false)
+  
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  lastActivityAt DateTime   @default(now())
+
+  // Relations
+  bookings    Booking[]
+  messages    Message[]
+  submissions FormSubmission[]
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  duration    Int      // minutes
+  price       Decimal  @db.Decimal(10, 2)
+  intakeFormId String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  bookings    Booking[]
+}
+
+model Booking {
+  id        String        @id @default(uuid())
+  date      DateTime
+  time      String        // HH:mm check needed?
+  duration  Int           // minutes
+  status    BookingStatus @default(PENDING)
+  notes     String?
+  
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  // Relations
+  leadId    String
+  lead      Lead    @relation(fields: [leadId], references: [id])
+  
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id])
+  
+  // Optional: Assignee
+  staffId   String?
+  staff     User?   @relation(fields: [staffId], references: [id])
+}
+
+model InventoryItem {
+  id          String   @id @default(uuid())
+  name        String
+  sku         String   @unique
+  category    String?
+  quantity    Int      @default(0)
+  threshold   Int      @default(10)
+  status      String   // 'in_stock' | 'low_stock' | 'out_of_stock' - could be enum or computed
+  
+  lastUpdated DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+model Form {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  type        String   // 'contact' | 'intake'
+  fields      Json     // Store fields array as JSON
+  isPublished Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  submissions FormSubmission[]
+}
+
+model FormSubmission {
+  id          String   @id @default(uuid())
+  data        Json
+  submittedAt DateTime @default(now())
+
+  // Relations
+  formId      String
+  form        Form     @relation(fields: [formId], references: [id])
+  
+  leadId      String?
+  lead        Lead?    @relation(fields: [leadId], references: [id])
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  senderId  String   // 'system' or User ID or Lead ID
+  readAt    DateTime?
+  
+  createdAt DateTime @default(now())
+
+  // Relations
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id])
+}
+
+model ActivityLog {
+  id          String   @id @default(uuid())
+  type        String   // 'lead' | 'booking' | 'message' | 'system'
+  title       String
+  description String?
+  metadata    Json?
+  
+  timestamp   DateTime @default(now())
+}
+
+model Settings {
+  id           String @id @default("default") // Only one row
+  businessName String
+  contactEmail String
+  currency     String @default("USD")
+  availability Json   // { days: [], start: "", end: "" }
+  integrations Json   // { email: bool, sms: bool, calendar: bool }
+}

@@ -8,7 +8,14 @@ export async function getServices() {
         const services = await prisma.service.findMany({
             orderBy: { name: 'asc' }
         });
-        return { success: true, data: services };
+
+        // Convert Decimal to number for client serialization
+        const serializedServices = services.map(service => ({
+            ...service,
+            price: Number(service.price)
+        }));
+
+        return { success: true, data: serializedServices };
     } catch (error) {
         console.error('Failed to fetch services:', error);
         return { success: false, error: 'Failed to fetch services' };
@@ -31,8 +38,14 @@ export async function createService(data: {
             }
         });
 
+        // Convert Decimal to number for client serialization
+        const serializedService = {
+            ...service,
+            price: Number(service.price)
+        };
+
         revalidatePath('/dashboard/bookings'); // Services affect booking form
-        return { success: true, data: service };
+        return { success: true, data: serializedService };
     } catch (error) {
         console.error('Failed to create service:', error);
         return { success: false, error: 'Failed to create service' };

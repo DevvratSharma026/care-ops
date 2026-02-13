@@ -14,7 +14,17 @@ export async function getBookings() {
             },
             orderBy: { date: 'asc' }
         });
-        return { success: true, data: bookings };
+
+        // Convert Decimal to number for client serialization
+        const serializedBookings = bookings.map(booking => ({
+            ...booking,
+            service: booking.service ? {
+                ...booking.service,
+                price: Number(booking.service.price)
+            } : null
+        }));
+
+        return { success: true, data: serializedBookings };
     } catch (error) {
         console.error('Failed to fetch bookings:', error);
         return { success: false, error: 'Failed to fetch bookings' };
@@ -31,6 +41,32 @@ export async function createBooking(data: {
     notes?: string;
 }) {
     try {
+        // Validate that the service exists
+        const service = await prisma.service.findUnique({
+            where: { id: data.serviceId }
+        });
+
+        if (!service) {
+            console.error(`Service not found with ID: ${data.serviceId}`);
+            return {
+                success: false,
+                error: `Service not found. Please select a valid service.`
+            };
+        }
+
+        // Validate that the lead exists
+        const lead = await prisma.lead.findUnique({
+            where: { id: data.leadId }
+        });
+
+        if (!lead) {
+            console.error(`Lead not found with ID: ${data.leadId}`);
+            return {
+                success: false,
+                error: `Lead not found. Please select a valid lead.`
+            };
+        }
+
         const booking = await prisma.booking.create({
             data: {
                 date: data.date,

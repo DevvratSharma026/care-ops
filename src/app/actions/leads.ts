@@ -22,9 +22,16 @@ export async function createLead(data: {
     phone?: string;
     company?: string;
     source?: string;
-    status?: LeadStatus;
+    status?: LeadStatus | string;
 }) {
     try {
+        // Map lowercase string status to uppercase enum
+        let mappedStatus: LeadStatus = LeadStatus.NEW;
+        if (data.status) {
+            const statusUpper = data.status.toString().toUpperCase() as keyof typeof LeadStatus;
+            mappedStatus = LeadStatus[statusUpper] || LeadStatus.NEW;
+        }
+
         const lead = await prisma.lead.create({
             data: {
                 name: data.name,
@@ -32,7 +39,7 @@ export async function createLead(data: {
                 phone: data.phone,
                 company: data.company,
                 source: data.source || 'Manual',
-                status: data.status || LeadStatus.NEW,
+                status: mappedStatus,
                 lastActivityAt: new Date(),
             }
         });

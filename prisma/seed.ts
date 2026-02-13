@@ -1,6 +1,5 @@
-import { PrismaClient, UserRole, LeadStatus, BookingStatus } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { UserRole, LeadStatus, BookingStatus } from '@prisma/client';
+import { prisma } from '../src/lib/prisma';
 
 async function main() {
     console.log('🌱 Starting seed...');

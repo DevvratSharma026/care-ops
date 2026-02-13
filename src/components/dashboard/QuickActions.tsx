@@ -10,11 +10,11 @@ type ActionType = 'booking' | 'lead' | 'invoice' | 'staff' | null;
 
 export default function QuickActions() {
     const [openModal, setOpenModal] = useState<ActionType>(null);
-    const { addLead, addBooking, addStaff, leads } = useBusinessStore();
+    const { addLead, addBooking, addStaff, leads, services } = useBusinessStore();
 
     // Form States
     const [leadForm, setLeadForm] = useState({ name: '', email: '', phone: '', company: '' });
-    const [bookingForm, setBookingForm] = useState({ leadId: '', date: '', time: '', serviceId: 's-1' });
+    const [bookingForm, setBookingForm] = useState({ leadId: '', date: '', time: '', serviceId: '' });
     const [staffForm, setStaffForm] = useState({ name: '', email: '', role: 'staff' as UserRole });
     const [invoiceForm, setInvoiceForm] = useState({ leadId: '', amount: '' });
 
@@ -22,7 +22,7 @@ export default function QuickActions() {
         setOpenModal(null);
         // Reset forms
         setLeadForm({ name: '', email: '', phone: '', company: '' });
-        setBookingForm({ leadId: '', date: '', time: '', serviceId: 's-1' });
+        setBookingForm({ leadId: '', date: '', time: '', serviceId: '' });
         setStaffForm({ name: '', email: '', role: 'staff' });
         setInvoiceForm({ leadId: '', amount: '' });
     };
@@ -40,6 +40,7 @@ export default function QuickActions() {
     const handleSubmitBooking = (e: React.FormEvent) => {
         e.preventDefault();
         if (!bookingForm.leadId) return alert('Please select a lead');
+        if (!bookingForm.serviceId) return alert('Please select a service');
         addBooking({
             leadId: bookingForm.leadId,
             serviceId: bookingForm.serviceId,
@@ -134,6 +135,20 @@ export default function QuickActions() {
                             </select>
                         </div>
                         <div>
+                            <label className="block text-sm font-medium text-gray-700">Service</label>
+                            <select
+                                required
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                value={bookingForm.serviceId}
+                                onChange={e => setBookingForm({ ...bookingForm, serviceId: e.target.value })}
+                            >
+                                <option value="">Select a service...</option>
+                                {services.map(service => (
+                                    <option key={service.id} value={service.id}>{service.name} - ${service.price}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div>
                             <label className="block text-sm font-medium text-gray-700">Date</label>
                             <input
                                 type="date"
@@ -152,6 +167,18 @@ export default function QuickActions() {
                                 value={bookingForm.time}
                                 onChange={e => setBookingForm({ ...bookingForm, time: e.target.value })}
                             />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700">Duration (minutes)</label>
+                            <select
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                defaultValue="60"
+                            >
+                                <option value="30">30 min</option>
+                                <option value="60">1 hour</option>
+                                <option value="90">1.5 hours</option>
+                                <option value="120">2 hours</option>
+                            </select>
                         </div>
                         <div className="flex justify-end pt-4">
                             <button

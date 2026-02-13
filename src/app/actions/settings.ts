@@ -29,10 +29,26 @@ export async function updateSettings(data: {
     integrations?: any; // JSON
 }) {
     try {
-        const settings = await prisma.settings.update({
+        const settings = await prisma.settings.upsert({
             where: { id: 'default' },
-            data: {
+            update: {
                 ...data
+            },
+            create: {
+                id: 'default',
+                businessName: data.businessName || 'CareOps',
+                contactEmail: data.contactEmail || 'contact@example.com',
+                currency: data.currency || 'USD',
+                availability: data.availability || {
+                    days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+                    start: '09:00',
+                    end: '17:00'
+                },
+                integrations: data.integrations || {
+                    emailProvider: false,
+                    smsProvider: false,
+                    calendar: false
+                }
             }
         });
 

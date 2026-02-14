@@ -33,6 +33,7 @@ export default function BookingPage() {
         notes: ''
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [formData, setFormData] = useState<Record<string, any>>({});
 
     const selectedService = services.find(s => s.id === bookingData.serviceId);
@@ -264,7 +265,7 @@ export default function BookingPage() {
                                     <User className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
                                     <input
                                         type="text"
-                                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                         value={bookingData.name}
                                         onChange={e => setBookingData({ ...bookingData, name: e.target.value })}
                                         placeholder="John Doe"
@@ -277,7 +278,7 @@ export default function BookingPage() {
                                     <Mail className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
                                     <input
                                         type="email"
-                                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                         value={bookingData.email}
                                         onChange={e => setBookingData({ ...bookingData, email: e.target.value })}
                                         placeholder="john@example.com"
@@ -288,7 +289,7 @@ export default function BookingPage() {
                                 <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                                 <input
                                     type="tel"
-                                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                    className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                     value={bookingData.phone}
                                     onChange={e => setBookingData({ ...bookingData, phone: e.target.value })}
                                     placeholder="+1 (555) 000-0000"
@@ -299,7 +300,7 @@ export default function BookingPage() {
                                 <div className="relative">
                                     <FileText className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
                                     <textarea
-                                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 h-24 resize-none"
+                                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 h-24 resize-none text-gray-900"
                                         value={bookingData.notes}
                                         onChange={e => setBookingData({ ...bookingData, notes: e.target.value })}
                                         placeholder="Anything else we should know?"
@@ -327,7 +328,7 @@ export default function BookingPage() {
                                         {field.type === 'text' && (
                                             <input
                                                 type="text"
-                                                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-white"
+                                                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-white text-gray-900"
                                                 value={formData[field.id] || ''}
                                                 onChange={e => setFormData({ ...formData, [field.id]: e.target.value })}
                                                 placeholder="Your answer..."
@@ -335,7 +336,7 @@ export default function BookingPage() {
                                         )}
                                         {field.type === 'textarea' && (
                                             <textarea
-                                                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 h-24 resize-none bg-white"
+                                                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 h-24 resize-none bg-white text-gray-900"
                                                 value={formData[field.id] || ''}
                                                 onChange={e => setFormData({ ...formData, [field.id]: e.target.value })}
                                                 placeholder="Type here..."
@@ -355,7 +356,7 @@ export default function BookingPage() {
                                         {field.type === 'date' && (
                                             <input
                                                 type="date"
-                                                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-white"
+                                                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 bg-white text-gray-900"
                                                 value={formData[field.id] || ''}
                                                 onChange={e => setFormData({ ...formData, [field.id]: e.target.value })}
                                             />

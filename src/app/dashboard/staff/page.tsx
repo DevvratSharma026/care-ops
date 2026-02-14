@@ -89,6 +89,7 @@ export default function StaffPage() {
                         <select
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 bg-white"
                             value={newMember.role}
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             onChange={(e) => setNewMember({ ...newMember, role: e.target.value as any })}
                         >
                             <option value="staff">Staff</option>

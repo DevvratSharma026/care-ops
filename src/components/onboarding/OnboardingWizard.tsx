@@ -71,7 +71,7 @@ export default function OnboardingWizard() {
                     </div>
                     <div className="relative z-10">
                         <h2 className="text-2xl font-bold mb-2">Welcome to CareOps!</h2>
-                        <p className="text-indigo-100">Let's get your business set up in just a minute.</p>
+                        <p className="text-indigo-100">Let&apos;s get your business set up in just a minute.</p>
 
                         <div className="flex gap-2 mt-6">
                             {[1, 2, 3].map(i => (
@@ -100,7 +100,7 @@ export default function OnboardingWizard() {
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Business Name</label>
                                     <input
                                         type="text"
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                         placeholder="e.g. Acme Clinic"
                                         value={businessName}
                                         onChange={e => setBusinessName(e.target.value)}
@@ -111,7 +111,7 @@ export default function OnboardingWizard() {
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Contact Email</label>
                                     <input
                                         type="email"
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                         placeholder="contact@example.com"
                                         value={email}
                                         onChange={e => setEmail(e.target.value)}
@@ -137,7 +137,7 @@ export default function OnboardingWizard() {
                                         <label className="block text-sm font-medium text-gray-700 mb-1">Start Time</label>
                                         <input
                                             type="time"
-                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                             value={startTime}
                                             onChange={e => setStartTime(e.target.value)}
                                         />
@@ -146,14 +146,14 @@ export default function OnboardingWizard() {
                                         <label className="block text-sm font-medium text-gray-700 mb-1">End Time</label>
                                         <input
                                             type="time"
-                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                             value={endTime}
                                             onChange={e => setEndTime(e.target.value)}
                                         />
                                     </div>
                                 </div>
                                 <p className="text-sm text-gray-500 mt-2">
-                                    We'll set this as your default availability for weekdays. You can customize this later in Settings.
+                                    We&apos;ll set this as your default availability for weekdays. You can customize this later in Settings.
                                 </p>
                             </motion.div>
                         )}
@@ -176,7 +176,7 @@ export default function OnboardingWizard() {
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Service Name</label>
                                     <input
                                         type="text"
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                        className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                         value={serviceName}
                                         onChange={e => setServiceName(e.target.value)}
                                         placeholder="e.g. Free Consultation"
@@ -187,7 +187,7 @@ export default function OnboardingWizard() {
                                         <label className="block text-sm font-medium text-gray-700 mb-1">Price ($)</label>
                                         <input
                                             type="number"
-                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                             value={servicePrice}
                                             onChange={e => setServicePrice(e.target.value)}
                                         />
@@ -196,7 +196,7 @@ export default function OnboardingWizard() {
                                         <label className="block text-sm font-medium text-gray-700 mb-1">Duration (min)</label>
                                         <input
                                             type="number"
-                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                            className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                             value={serviceDuration}
                                             onChange={e => setServiceDuration(e.target.value)}
                                         />

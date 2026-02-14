@@ -34,7 +34,7 @@ export default function LeadForm({ onSuccess, onCancel }: LeadFormProps) {
                 <input
                     type="text"
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                    className="text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
                     value={formData.name}
                     onChange={e => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -44,7 +44,7 @@ export default function LeadForm({ onSuccess, onCancel }: LeadFormProps) {
                 <input
                     type="email"
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                    className="text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
                     value={formData.email}
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
                 />
@@ -53,7 +53,7 @@ export default function LeadForm({ onSuccess, onCancel }: LeadFormProps) {
                 <label className="block text-sm font-medium text-gray-700">Company</label>
                 <input
                     type="text"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                    className="text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
                     value={formData.company}
                     onChange={e => setFormData({ ...formData, company: e.target.value })}
                 />
@@ -62,7 +62,7 @@ export default function LeadForm({ onSuccess, onCancel }: LeadFormProps) {
                 <label className="block text-sm font-medium text-gray-700">Phone</label>
                 <input
                     type="tel"
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                    className="text-black mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
                     value={formData.phone}
                     onChange={e => setFormData({ ...formData, phone: e.target.value })}
                 />

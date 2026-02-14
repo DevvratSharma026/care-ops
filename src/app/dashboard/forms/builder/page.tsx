@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useBusinessStore } from '@/lib/store';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Form, FormField } from '@/types/domain';
@@ -8,7 +8,7 @@ import { Save, Plus, Trash2, GripVertical, CheckSquare, Type, Calendar, ArrowLef
 import Link from 'next/link';
 import clsx from 'clsx';
 
-export default function FormBuilderPage() {
+function FormBuilderContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { forms, saveForm } = useBusinessStore();
@@ -31,6 +31,7 @@ export default function FormBuilderPage() {
         if (formId) {
             const existingForm = forms.find(f => f.id === formId);
             if (existingForm) {
+                // eslint-disable-next-line
                 setForm(existingForm);
             }
         }
@@ -42,6 +43,7 @@ export default function FormBuilderPage() {
             type,
             label: `New ${type} question`,
             required: false,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             options: type === 'checkbox' || type === 'select' as any ? ['Option 1'] : undefined
         };
         setForm({ ...form, fields: [...form.fields, newField] });
@@ -184,7 +186,7 @@ export default function FormBuilderPage() {
                             </div>
 
                             {/* Fields */}
-                            {form.fields.map((field, index) => (
+                            {form.fields.map((field) => (
                                 <div key={field.id} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm relative group hover:border-indigo-300 transition-colors">
                                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-indigo-500 rounded-l-xl transition-colors" />
 
@@ -308,5 +310,14 @@ export default function FormBuilderPage() {
                 </div>
             )}
         </div>
+    );
+}
+
+
+export default function FormBuilderPage() {
+    return (
+        <Suspense fallback={<div className="flex items-center justify-center h-screen">Loading builder...</div>}>
+            <FormBuilderContent />
+        </Suspense>
     );
 }

@@ -124,7 +124,7 @@ export default function QuickActions() {
                             <label className="block text-sm font-medium text-gray-700">Client / Lead</label>
                             <select
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={bookingForm.leadId}
                                 onChange={e => setBookingForm({ ...bookingForm, leadId: e.target.value })}
                             >
@@ -138,7 +138,7 @@ export default function QuickActions() {
                             <label className="block text-sm font-medium text-gray-700">Service</label>
                             <select
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={bookingForm.serviceId}
                                 onChange={e => setBookingForm({ ...bookingForm, serviceId: e.target.value })}
                             >
@@ -153,7 +153,7 @@ export default function QuickActions() {
                             <input
                                 type="date"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={bookingForm.date}
                                 onChange={e => setBookingForm({ ...bookingForm, date: e.target.value })}
                             />
@@ -163,7 +163,7 @@ export default function QuickActions() {
                             <input
                                 type="time"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={bookingForm.time}
                                 onChange={e => setBookingForm({ ...bookingForm, time: e.target.value })}
                             />
@@ -171,7 +171,7 @@ export default function QuickActions() {
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Duration (minutes)</label>
                             <select
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 defaultValue="60"
                             >
                                 <option value="30">30 min</option>
@@ -208,7 +208,7 @@ export default function QuickActions() {
                             <input
                                 type="text"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={leadForm.name}
                                 onChange={e => setLeadForm({ ...leadForm, name: e.target.value })}
                             />
@@ -218,7 +218,7 @@ export default function QuickActions() {
                             <input
                                 type="email"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={leadForm.email}
                                 onChange={e => setLeadForm({ ...leadForm, email: e.target.value })}
                             />
@@ -227,7 +227,7 @@ export default function QuickActions() {
                             <label className="block text-sm font-medium text-gray-700">Company</label>
                             <input
                                 type="text"
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={leadForm.company}
                                 onChange={e => setLeadForm({ ...leadForm, company: e.target.value })}
                             />
@@ -236,7 +236,7 @@ export default function QuickActions() {
                             <label className="block text-sm font-medium text-gray-700">Phone</label>
                             <input
                                 type="tel"
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={leadForm.phone}
                                 onChange={e => setLeadForm({ ...leadForm, phone: e.target.value })}
                             />
@@ -268,7 +268,7 @@ export default function QuickActions() {
                             <label className="block text-sm font-medium text-gray-700">Client / Lead</label>
                             <select
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={invoiceForm.leadId}
                                 onChange={e => setInvoiceForm({ ...invoiceForm, leadId: e.target.value })}
                             >
@@ -284,7 +284,7 @@ export default function QuickActions() {
                                 type="number"
                                 required
                                 min="0"
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={invoiceForm.amount}
                                 onChange={e => setInvoiceForm({ ...invoiceForm, amount: e.target.value })}
                             />
@@ -317,7 +317,7 @@ export default function QuickActions() {
                             <input
                                 type="text"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={staffForm.name}
                                 onChange={e => setStaffForm({ ...staffForm, name: e.target.value })}
                             />
@@ -327,7 +327,7 @@ export default function QuickActions() {
                             <input
                                 type="email"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={staffForm.email}
                                 onChange={e => setStaffForm({ ...staffForm, email: e.target.value })}
                             />
@@ -335,7 +335,7 @@ export default function QuickActions() {
                         <div>
                             <label className="block text-sm font-medium text-gray-700">Role</label>
                             <select
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                                 value={staffForm.role}
                                 onChange={e => setStaffForm({ ...staffForm, role: e.target.value as UserRole })}
                             >

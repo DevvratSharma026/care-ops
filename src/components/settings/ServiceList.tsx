@@ -53,13 +53,13 @@ export default function ServiceList() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <input
                             placeholder="Service Name"
-                            className="px-3 py-2 rounded-lg border border-gray-300"
+                            className="px-3 py-2 rounded-lg border border-gray-300 text-gray-900"
                             value={newService.name}
                             onChange={e => setNewService({ ...newService, name: e.target.value })}
                         />
                         <input
                             placeholder="Description"
-                            className="px-3 py-2 rounded-lg border border-gray-300"
+                            className="px-3 py-2 rounded-lg border border-gray-300 text-gray-900"
                             value={newService.description}
                             onChange={e => setNewService({ ...newService, description: e.target.value })}
                         />
@@ -68,7 +68,7 @@ export default function ServiceList() {
                             <input
                                 type="number"
                                 placeholder="Duration (min)"
-                                className="w-full pl-9 px-3 py-2 rounded-lg border border-gray-300"
+                                className="w-full pl-9 px-3 py-2 rounded-lg border border-gray-300 text-gray-900"
                                 value={newService.duration}
                                 onChange={e => setNewService({ ...newService, duration: parseInt(e.target.value) || 0 })}
                             />
@@ -78,7 +78,7 @@ export default function ServiceList() {
                             <input
                                 type="number"
                                 placeholder="Price"
-                                className="w-full pl-9 px-3 py-2 rounded-lg border border-gray-300"
+                                className="w-full pl-9 px-3 py-2 rounded-lg border border-gray-300 text-gray-900"
                                 value={newService.price}
                                 onChange={e => setNewService({ ...newService, price: parseInt(e.target.value) || 0 })}
                             />
@@ -86,7 +86,7 @@ export default function ServiceList() {
                         <div className="md:col-span-2">
                             <label className="block text-xs font-medium text-gray-500 mb-1 ml-1">Intake Form (Optional)</label>
                             <select
-                                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm"
+                                className="w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-gray-900"
                                 value={newService.intakeFormId || ''}
                                 onChange={e => setNewService({ ...newService, intakeFormId: e.target.value || undefined })}
                             >

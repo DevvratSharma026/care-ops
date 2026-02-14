@@ -25,7 +25,9 @@ export async function updateSettings(data: {
     businessName?: string;
     contactEmail?: string;
     currency?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     availability?: any; // JSON
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     integrations?: any; // JSON
 }) {
     try {

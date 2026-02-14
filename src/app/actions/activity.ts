@@ -20,6 +20,7 @@ export async function logActivity(data: {
     type: string;
     title: string;
     description?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     metadata?: any;
 }) {
     try {

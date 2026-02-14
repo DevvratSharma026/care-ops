@@ -163,7 +163,7 @@ export default function Inbox() {
                         <input
                             type="text"
                             placeholder="Search messages..."
-                            className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                         />
@@ -282,7 +282,7 @@ export default function Inbox() {
                                 </button>
                                 <div className="w-px h-6 bg-gray-200 mx-1" />
                                 <button
-                                    onClick={() => toggleLeadStar(activeLead.id)}
+                                    onClick={() => toggleLeadStar(activeLead.id, !activeLead.isStarred)}
                                     className={clsx(
                                         "p-2 hover:bg-gray-100 rounded-lg transition-colors tooltip",
                                         activeLead.isStarred ? "text-amber-400 hover:text-amber-500" : "hover:text-amber-400"
@@ -292,7 +292,7 @@ export default function Inbox() {
                                     <Star className={clsx("w-4 h-4", activeLead.isStarred && "fill-current")} />
                                 </button>
                                 <button
-                                    onClick={() => toggleLeadArchive(activeLead.id)}
+                                    onClick={() => toggleLeadArchive(activeLead.id, !activeLead.isArchived)}
                                     className={clsx(
                                         "p-2 hover:bg-gray-100 rounded-lg transition-colors tooltip",
                                         activeLead.isArchived ? "text-gray-900 bg-gray-100" : "hover:text-gray-900"
@@ -400,7 +400,7 @@ export default function Inbox() {
                                 <textarea
                                     rows={1}
                                     placeholder="Type your message..."
-                                    className="flex-1 bg-transparent border-0 focus:ring-0 resize-none py-2 text-sm max-h-32"
+                                    className="flex-1 bg-transparent border-0 focus:ring-0 resize-none py-2 text-sm max-h-32 text-gray-900"
                                     value={newMessage}
                                     onChange={(e) => setNewMessage(e.target.value)}
                                     onKeyDown={handleKeyPress}

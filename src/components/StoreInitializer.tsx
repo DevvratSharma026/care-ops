@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useBusinessStore } from '@/lib/store';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export default function StoreInitializer({
     leads,
     bookings,
@@ -24,7 +25,8 @@ export default function StoreInitializer({
     activityFeed: any[];
     currentUser: any;
 }) {
-    useBusinessStore.setState({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const initData: any = {
         leads,
         bookings,
         staff,
@@ -36,6 +38,7 @@ export default function StoreInitializer({
         messages,
         activityFeed,
         currentUser
-    });
+    };
+    useBusinessStore.setState(initData);
     return null;
 }

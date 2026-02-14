@@ -103,7 +103,7 @@ export default function ContactPage() {
                             <input
                                 type="text"
                                 required
-                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                 placeholder="John Doe"
                                 value={formData.name}
                                 onChange={e => setFormData({ ...formData, name: e.target.value })}
@@ -117,7 +117,7 @@ export default function ContactPage() {
                             <input
                                 type="email"
                                 required
-                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                 placeholder="john@example.com"
                                 value={formData.email}
                                 onChange={e => setFormData({ ...formData, email: e.target.value })}
@@ -130,7 +130,7 @@ export default function ContactPage() {
                             <Phone className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
                             <input
                                 type="tel"
-                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                 placeholder="+1 (555) 000-0000"
                                 value={formData.phone}
                                 onChange={e => setFormData({ ...formData, phone: e.target.value })}
@@ -143,7 +143,7 @@ export default function ContactPage() {
                             <MessageSquare className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
                             <textarea
                                 required
-                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                                 rows={4}
                                 placeholder="How can we help you?"
                                 value={formData.message}

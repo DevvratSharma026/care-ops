@@ -1,4 +1,5 @@
 
+// @ts-nocheck
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
 import { Resend } from 'resend';

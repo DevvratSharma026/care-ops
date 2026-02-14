@@ -38,7 +38,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
                 <label className="block text-sm font-medium text-gray-700">Client / Lead</label>
                 <select
                     required
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                     value={formData.leadId}
                     onChange={e => setFormData({ ...formData, leadId: e.target.value })}
                 >
@@ -55,7 +55,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
                     <input
                         type="date"
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                         value={formData.date}
                         onChange={e => setFormData({ ...formData, date: e.target.value })}
                     />
@@ -65,7 +65,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
                     <input
                         type="time"
                         required
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                         value={formData.time}
                         onChange={e => setFormData({ ...formData, time: e.target.value })}
                     />
@@ -75,7 +75,7 @@ export default function BookingForm({ onSuccess, onCancel }: BookingFormProps) {
             <div>
                 <label className="block text-sm font-medium text-gray-700">Duration (minutes)</label>
                 <select
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2"
+                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm border p-2 text-gray-900"
                     value={formData.duration}
                     onChange={e => setFormData({ ...formData, duration: Number(e.target.value) })}
                 >

@@ -41,7 +41,7 @@ export default function FormBuilder() {
 
     const addField = (type: string) => {
         const newField: FormField = {
-            id: Math.random().toString(36).substr(2, 9),
+            id: crypto.randomUUID(),
             type: type as FormField['type'],
             label: `New ${type} field`,
             required: false,

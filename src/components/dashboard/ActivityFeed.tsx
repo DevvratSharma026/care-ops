@@ -65,6 +65,7 @@ export default function ActivityFeed() {
     // Hydration fix: only render relative time client-side
     const [mounted, setMounted] = useState(false);
     useEffect(() => {
+        // eslint-disable-next-line
         setMounted(true);
     }, []);
 

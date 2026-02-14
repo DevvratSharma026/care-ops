@@ -69,7 +69,7 @@ export default function AvailabilitySettings() {
                                 type="time"
                                 value={settings.availability.start}
                                 onChange={e => updateTime('start', e.target.value)}
-                                className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                             />
                         </div>
                         <div>
@@ -78,7 +78,7 @@ export default function AvailabilitySettings() {
                                 type="time"
                                 value={settings.availability.end}
                                 onChange={e => updateTime('end', e.target.value)}
-                                className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-900"
                             />
                         </div>
                     </div>

@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CareOps - Business Automation Platform
 
-## Getting Started
+CareOps is a comprehensive, all-in-one SaaS platform designed to streamline operations for service-based businesses. From booking appointments to managing leads and staff, CareOps provides a unified command center to automate workflows and grow your business.
 
-First, run the development server:
+![CareOps Dashboard](https://via.placeholder.com/800x400?text=CareOps+Dashboard+Preview)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. **Command Center Dashboard**
+   - Real-time metrics: Revenue, Active Leads, Bookings.
+   - Activity Feed: Track every action in your business (New bookings, lead updates, etc.).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 2. **Smart Booking System**
+   - **Public Booking Page**: A beautiful, mobile-responsive booking portal for clients.
+   - **Real-time Availability**: Syncs with your business hours and staff schedules.
+   - **Service Management**: Define service duration, pricing, and descriptions.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. **CRM & Lead Management**
+   - **Unified Inbox**: Manage client communications in one place.
+   - **Lead Tracking**: Track leads from "New" to "Converted".
+   - **Automated Capture**: Leads are automatically created from booking inquiries.
 
-## Learn More
+### 4. **Dynamic Form Builder**
+   - **Drag-and-Drop Interface**: Create custom intake forms, surveys, and questionnaires.
+   - **Service Integration**: Link specific forms to services (e.g., "Medical History" for a consultation).
+   - **Supported Fields**: Text, Checkboxes, Date Pickers, and more.
 
-To learn more about Next.js, take a look at the following resources:
+### 5. **Team & Operations**
+   - **Staff Management**: Invite team members, assign roles (Owner, Manager, Staff).
+   - **Availability Settings**: Configure business hours and exceptions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + Glassmorphism Design
+- **Database**: [PostgreSQL](https://www.postgresql.org/) (via [Prisma ORM](https://www.prisma.io/))
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
 
-## Deploy on Vercel
+## 📦 Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
+- Node.js 18+
+- PostgreSQL Database URL
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/DevvratSharma026/care-ops.git
+   cd care-ops
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   Create a `.env` file in the root directory:
+   ```env
+   DATABASE_URL="postgresql://user:password@localhost:5432/careops"
+   NEXT_PUBLIC_APP_URL="http://localhost:3000"
+   ```
+
+4. **Database Setup**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npx prisma db seed # (Optional: Seeds demo data)
+   ```
+
+5. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.

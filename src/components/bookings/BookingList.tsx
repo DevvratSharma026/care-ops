@@ -89,17 +89,17 @@ export default function BookingList({ bookings: propBookings }: BookingListProps
 
                             {/* Actions Column */}
                             <div className="hidden sm:flex items-center gap-2 pl-4 border-l border-gray-100">
-                                {booking.status === 'pending' && (
+                                {booking.status === 'PENDING' && (
                                     <>
                                         <button
-                                            onClick={() => updateBookingStatus(booking.id, 'confirmed')}
+                                            onClick={() => updateBookingStatus(booking.id, 'CONFIRMED')}
                                             className="p-2 text-green-600 hover:bg-green-50 rounded-lg tooltip"
                                             title="Confirm"
                                         >
                                             <CheckCircle className="w-5 h-5" />
                                         </button>
                                         <button
-                                            onClick={() => updateBookingStatus(booking.id, 'cancelled')}
+                                            onClick={() => updateBookingStatus(booking.id, 'CANCELLED')}
                                             className="p-2 text-red-600 hover:bg-red-50 rounded-lg tooltip"
                                             title="Decline"
                                         >

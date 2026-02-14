@@ -260,8 +260,8 @@ export const useBusinessStore = create<BusinessState>((set, get) => ({
                 bookings: state.bookings.map(b => b.id === id ? { ...b, status } : b)
             }));
 
-            if (status === 'confirmed') {
-                eventBus.dispatch('BOOKING_CONFIRMED', { ...result.data, status: 'confirmed' } as any);
+            if (status === 'CONFIRMED') {
+                eventBus.dispatch('BOOKING_CONFIRMED', { ...result.data, status: 'CONFIRMED' } as any);
             }
             get().refreshMetrics();
         }

@@ -80,8 +80,8 @@ export default function CalendarView({ currentDate, onDateChange, onSelectBookin
                             onClick={() => onSelectBooking(booking.id)}
                             className={clsx(
                                 "text-xs px-1.5 py-0.5 rounded truncate cursor-pointer",
-                                booking.status === 'confirmed' ? "bg-green-100 text-green-800" :
-                                    booking.status === 'cancelled' ? "bg-red-100 text-red-800" :
+                                booking.status === 'CONFIRMED' ? "bg-green-100 text-green-800" :
+                                    booking.status === 'CANCELLED' ? "bg-red-100 text-red-800" :
                                         "bg-indigo-100 text-indigo-800"
                             )}
                             title={`${booking.time} - ${getClientName(booking.leadId)}`}

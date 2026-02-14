@@ -25,7 +25,7 @@ export interface Lead {
     isArchived?: boolean;
 }
 
-export type BookingStatus = 'pending' | 'confirmed' | 'completed' | 'cancelled';
+export type BookingStatus = 'PENDING' | 'CONFIRMED' | 'COMPLETED' | 'CANCELLED';
 
 export interface Booking {
     id: string;
